@@ -1,0 +1,30 @@
+2025-04-04 14:37:43,902 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.city([])  ----->
+2025-04-04 14:37:43,909 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.city([ 동두천시 ,  진도군 ,  논산시 ,  고성군 ,  함평군 ,  사천시 ,  통영시 ,  정읍시 ,  파주시 ,  단양군 ,  고령군 ,  완도군 ,  서산시 ,  장흥군 ,  양주시 ,  광주시 ,  예천군 ,  나주시 ,  거제시 ,  청송군 ,  금산군 ])  -----
+2025-04-04 14:37:54,291 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.price([동두천시, 가정용])  ----->
+2025-04-04 14:37:54,295 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.price(Price(id=1, city=동두천시, sector=가정용, unitPrice=690),  Price(id=2, city=동두천시, sector=가정용, unitPrice=1090),  Price(id=3, city=동두천시, sector=가정용, unitPrice=1530))  -----
+2025-04-04 14:38:01,533 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.sector([동두천시])  ----->
+2025-04-04 14:38:01,535 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.sector([ 전용공업용 ,  발전용 ,  가정용 ,  일반용(미) ,  일반용 ])  -----
+2025-04-04 20:10:14,652 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.city([])  ----->
+2025-04-04 20:10:14,656 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.city([ 동두천시 ,  진도군 ,  논산시 ,  고성군 ,  함평군 ,  사천시 ,  통영시 ,  정읍시 ,  파주시 ,  단양군 ,  고령군 ,  완도군 ,  서산시 ,  장흥군 ,  양주시 ,  광주시 ,  예천군 ,  나주시 ,  거제시 ,  청송군 ,  금산군 ])  -----
+2025-04-04 20:10:35,638 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.sector([동두천시])  ----->
+2025-04-04 20:10:35,644 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.sector([ 전용공업용 ,  발전용 ,  가정용 ,  일반용(미) ,  일반용 ])  -----
+2025-04-04 20:17:13,774 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.sector([동두천시])  ----->
+2025-04-04 20:17:13,777 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.sector([ 전용공업용 ,  발전용 ,  가정용 ,  일반용(미) ,  일반용 ])  -----
+2025-04-04 20:17:15,731 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.city([])  ----->
+2025-04-04 20:17:15,733 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.city([ 동두천시 ,  진도군 ,  논산시 ,  고성군 ,  함평군 ,  사천시 ,  통영시 ,  정읍시 ,  파주시 ,  단양군 ,  고령군 ,  완도군 ,  서산시 ,  장흥군 ,  양주시 ,  광주시 ,  예천군 ,  나주시 ,  거제시 ,  청송군 ,  금산군 ])  -----
+2025-04-04 20:18:07,624 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.city([])  ----->
+2025-04-04 20:18:07,627 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.city([ 동두천시 ,  진도군 ,  논산시 ,  고성군 ,  함평군 ,  사천시 ,  통영시 ,  정읍시 ,  파주시 ,  단양군 ,  고령군 ,  완도군 ,  서산시 ,  장흥군 ,  양주시 ,  광주시 ,  예천군 ,  나주시 ,  거제시 ,  청송군 ,  금산군 ])  -----
+2025-04-04 20:18:07,635 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.sector([동두천시])  ----->
+2025-04-04 20:18:07,637 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.sector([ 전용공업용 ,  발전용 ,  가정용 ,  일반용(미) ,  일반용 ])  -----
+2025-04-04 20:32:35,283 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.city([])  ----->
+2025-04-04 20:32:35,286 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.city([ 동두천시 ,  진도군 ,  논산시 ,  고성군 ,  함평군 ,  사천시 ,  통영시 ,  정읍시 ,  파주시 ,  단양군 ,  고령군 ,  완도군 ,  서산시 ,  장흥군 ,  양주시 ,  광주시 ,  예천군 ,  나주시 ,  거제시 ,  청송군 ,  금산군 ])  -----
+2025-04-04 20:32:35,354 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.sector([동두천시])  ----->
+2025-04-04 20:32:35,357 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.sector([ 전용공업용 ,  발전용 ,  가정용 ,  일반용(미) ,  일반용 ])  -----
+2025-04-04 20:42:53,768 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.city([])  ----->
+2025-04-04 20:42:53,771 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.city([ 동두천시 ,  진도군 ,  논산시 ,  고성군 ,  함평군 ,  사천시 ,  통영시 ,  정읍시 ,  파주시 ,  단양군 ,  고령군 ,  완도군 ,  서산시 ,  장흥군 ,  양주시 ,  광주시 ,  예천군 ,  나주시 ,  거제시 ,  청송군 ,  금산군 ])  -----
+2025-04-04 20:42:53,780 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.sector([동두천시])  ----->
+2025-04-04 20:42:53,783 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.sector([ 전용공업용 ,  발전용 ,  가정용 ,  일반용(미) ,  일반용 ])  -----
+2025-04-04 20:54:04,889 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.city([])  ----->
+2025-04-04 20:54:04,893 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.city([ 동두천시 ,  진도군 ,  논산시 ,  고성군 ,  함평군 ,  사천시 ,  통영시 ,  정읍시 ,  파주시 ,  단양군 ,  고령군 ,  완도군 ,  서산시 ,  장흥군 ,  양주시 ,  광주시 ,  예천군 ,  나주시 ,  거제시 ,  청송군 ,  금산군 ])  -----
+2025-04-04 20:54:04,903 INFO [main] c.e.w.c.a.searchAop [searchAop.java:37] ------ 선도형 class com.example.waterwork.commad.MyCommands.sector([동두천시])  ----->
+2025-04-04 20:54:04,905 INFO [main] c.e.w.c.a.searchAop [searchAop.java:39] <----- 선도형 class com.example.waterwork.commad.MyCommands.sector([ 전용공업용 ,  발전용 ,  가정용 ,  일반용(미) ,  일반용 ])  -----
