@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>학생 정보</title>
+</head>
+<body>
+<p>아이디: <span th:text="${student.id}"></span></p>
+<p>비밀번호: <span th:text="${student.password}"></span></p>
+<p>이름: <span th:text="${student.name}"></span></p>
+<p>이메일: <span th:text="${student.email}"></span></p>
+<div th:if="${hideScore != 'Yes'}">
+    <p>성적: <span th:text="${student.grade}"></span></p>
+    <p>평가: <span th:text="${student.evaluation}"></span></p>
+</div>
+<br>
+<a th:href="@{/student/{id}/update(id=${student.id})}">
+    <button>수정</button>
+</a>
+</body>
+</html>
