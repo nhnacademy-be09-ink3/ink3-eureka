@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>학생 정보</title>
+</head>
+<body>
+<p><span th:text="#{id}"></span>: <span th:text="${student.id}"></span></p>
+<p><span th:text="#{password}"></span>: <span th:text="${student.password}"></span></p>
+<p><span th:text="#{name}"></span>: <span th:text="${student.name}"></span></p>
+<p><span th:text="#{email}"></span>: <span th:text="${student.email}"></span></p>
+<div th:if="${hideScore != 'Yes'}">
+    <p><span th:text="#{grade}"></span>: <span th:text="${student.grade}"></span></p>
+    <p><span th:text="#{evaluation}"></span>: <span th:text="${student.evaluation}"></span></p>
+</div>
+<br>
+<a th:href="@{/student/{id}/update(id=${student.id})}">
+    <button><span th:text="#{updateButton}"></span></button>
+</a>
+<br />
+<a href="?locale=ko">ko</a><br />
+<a href="?locale=en">en</a><br />
+</body>
+</html>
