@@ -30,8 +30,7 @@ public class StudentRegisterController {
     }
 
     @PostMapping
-    public String registerStudent(@Validated @ModelAttribute StudentRegisterRequest registerRequest,
-                                  BindingResult bindingResult){
+    public String registerStudent(@Validated @ModelAttribute StudentRegisterRequest registerRequest, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             throw new ValidationFailedException(bindingResult);
         }

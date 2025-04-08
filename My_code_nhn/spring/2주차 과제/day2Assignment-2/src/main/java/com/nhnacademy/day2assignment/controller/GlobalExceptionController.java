@@ -24,18 +24,19 @@ public class GlobalExceptionController {
         String collect = bindingResult.getAllErrors()
                 .stream()
                 .map(error -> new StringBuilder().append("ObjectName=").append(error.getObjectName())
-                        .append("\n,Message=").append(error.getDefaultMessage())
-                        .append("\n,code=").append(error.getCode()))
+                        .append(",Message=").append(error.getDefaultMessage())
+                        .append(",code=").append(error.getCode()))
                 .collect(Collectors.joining(" | "));
+
 
         model.addAttribute("errorMessage", collect);
         model.addAttribute("exception", ex);
         return "error";
     }
 
+
     @ExceptionHandler(Exception.class)
     public String exception(Exception ex, Model model){
-        log.info("sssss");
         model.addAttribute("errorMessage", ex.getMessage());
         model.addAttribute("exception", ex);
         return "error";

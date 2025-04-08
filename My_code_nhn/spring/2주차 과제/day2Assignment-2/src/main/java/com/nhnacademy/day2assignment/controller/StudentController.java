@@ -29,7 +29,6 @@ public class StudentController {
         this.validation = validation;
     }
 
-
     @ModelAttribute("student")
     public Student getStudent(@PathVariable("studentId") String studentId, @CookieValue(value = "SESSION", required = false) String sessionId){
         if(Objects.isNull(sessionId) || sessionId.isEmpty()){
@@ -40,17 +39,17 @@ public class StudentController {
         return student.maskingPassword();
     }
 
+
+
     @GetMapping("/student/{studentId}")
     public String getStudentView(){
         return "studentView";
     }
 
+
     @GetMapping(value = "/student/{studentId}", params = "hideScore=yes")
     public String getStudentViewWithHideScore(ModelMap modelMap, @RequestParam( value = "hideScore", required = false) String hideScore){
-        if(Objects.nonNull(hideScore)){
-            modelMap.put("hideScore","Yes");
-            return "studentView";
-        }
+        modelMap.put("hideScore","Yes");
         return "studentView";
     }
 
@@ -60,8 +59,7 @@ public class StudentController {
     }
 
     @PostMapping("/student/{studentId}/update")
-    public String updatePostStudent(@Validated @ModelAttribute StudentRegisterRequest registerRequest,
-                                    BindingResult bindingResult){
+    public String updatePostStudent(@Validated @ModelAttribute StudentRegisterRequest registerRequest, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             throw new ValidationFailedException(bindingResult);
         }
@@ -86,6 +84,5 @@ public class StudentController {
 
     @ExceptionHandler(StudentNotLoginAccessException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public void studentNotLoginAccessException(){
-    }
+    public void studentNotLoginAccessException(){}
 }
