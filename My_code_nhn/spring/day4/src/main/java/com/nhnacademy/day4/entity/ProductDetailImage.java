@@ -1,6 +1,7 @@
 package com.nhnacademy.day4.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +19,7 @@ public class ProductDetailImage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int detailImageId;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;

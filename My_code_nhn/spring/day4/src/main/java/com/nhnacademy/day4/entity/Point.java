@@ -1,6 +1,7 @@
 package com.nhnacademy.day4.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class Point {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @NotNull
     @Column(name = "point_price")
     private int point_price;
 

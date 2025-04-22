@@ -1,6 +1,7 @@
 package com.nhnacademy.day4.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,9 +23,11 @@ public class Address {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @NotNull
     @Column(name = "user_address")
     private String userAddress;
 
+    @NotNull
     @Column(name = "user_address_details")
     private String userAddressDetails;
 

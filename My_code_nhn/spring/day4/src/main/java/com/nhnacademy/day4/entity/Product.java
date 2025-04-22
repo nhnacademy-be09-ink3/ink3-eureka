@@ -1,6 +1,7 @@
 package com.nhnacademy.day4.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,9 +20,11 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productId;
 
+    @NotNull
     @Column(name = "product_name")
     private String productName;
 
+    @NotNull
     @Column(name = "product_price")
     private int productPrice;
 

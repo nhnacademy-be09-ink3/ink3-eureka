@@ -1,6 +1,7 @@
 package com.nhnacademy.day4.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,9 +25,11 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @NotNull
     @Column(name = "order_time")
     private LocalDateTime orderTime;
 
+    @NotNull
     @Column(name = "address")
     private String address;
 }

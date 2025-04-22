@@ -1,6 +1,7 @@
 package com.nhnacademy.day4.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,6 +21,7 @@ public class Pay {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int payId;
 
+    @NotNull
     @Column(name = "total_price")
     private int totalPrice;
 
@@ -27,6 +29,7 @@ public class Pay {
     @JoinColumn(name = "order_id")
     private Order order;
 
+    @NotNull
     @Column(name = "pay_time")
     private LocalDateTime payTime;
 }

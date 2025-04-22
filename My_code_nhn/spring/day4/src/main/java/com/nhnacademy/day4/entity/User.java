@@ -1,9 +1,13 @@
 package com.nhnacademy.day4.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
@@ -17,9 +21,12 @@ public class User {
     @Column(name = "user_id")
     private String userId;
 
+    @Length(min = 1, max = 20)
+    @NotNull
     @Column(name = "user_name")
     private String userName;
 
+    @NotNull
     @Setter
     @Column(name = "user_password")
     private String userPassword;
@@ -34,11 +41,16 @@ public class User {
     @Column(name = "user_point")
     private int userPoint;
 
+    @NotNull
     @Column(name = "create_at")
     private LocalDateTime createdAt;
 
+    @NotNull
     @Column(name = "last_login_at")
     private LocalDateTime latestLoginAt;
+
+    @OneToMany(mappedBy = "user")
+    private List<Address> addressList;
 
 
     public User(String userId, String userName, String userPassword, String userBirth, Auth userAuth, int userPoint, LocalDateTime createdAt, LocalDateTime latestLoginAt) {
