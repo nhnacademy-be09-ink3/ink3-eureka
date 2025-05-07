@@ -107,7 +107,7 @@ jobs:
           username: ${{ secrets.SSH_ID }}
           key: ${{ secrets.SSH_KEY }}
           source: "target/*.jar"
-          target: "~/app/"
+          target: "~/eureka/"
 
       - name: Run deploy.sh on server
         uses: appleboy/ssh-action@v0.1.7
@@ -117,5 +117,5 @@ jobs:
           username: ${{ secrets.SSH_ID }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/app
+            cd ~/eureka
             bash deploy.sh
