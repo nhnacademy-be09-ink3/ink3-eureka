@@ -116,8 +116,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_ID }}
           key: ${{ secrets.SSH_KEY }}
-          shell: bash
-          shellArg: -lc
           script: |
             cd ~/eureka
             ./deploy.sh
