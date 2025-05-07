@@ -116,7 +116,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_ID }}
           key: ${{ secrets.SSH_KEY }}
-          entryPoint: bash
           script: |
             whoami
             cd ~/eureka
