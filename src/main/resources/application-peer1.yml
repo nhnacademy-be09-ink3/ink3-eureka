@@ -1,0 +1,6 @@
+server:
+  port: 10252
+
+eureka:
+  instance:
+    hostname: peer1
