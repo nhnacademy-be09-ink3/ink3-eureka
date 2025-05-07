@@ -1,13 +1,22 @@
 server:
-  port: 10260
+  shutdown: graceful
 
 spring:
-  application:
-    name: ink3-eureka
+  lifecycle:
+    timeout-per-shutdown-phase: 10s
+
+  security:
+    user:
+      name: admin
+      password: 1234
+
+  profiles:
+    active: peer1
 
 eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://localhost:10260/eureka/
+      defaultZone: >
+        http://admin:1234@localhost:10252/eureka/,http://admin:1234@localhost:10253/eureka/
