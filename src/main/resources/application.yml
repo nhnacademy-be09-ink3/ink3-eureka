@@ -6,6 +6,14 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 10s
 
+  web:
+    resources:
+      add-mappings: true
+
+  mvc:
+    pathmatch:
+      matching-stragtegy: ant_path_matcher
+
   security:
     user:
       name: admin
