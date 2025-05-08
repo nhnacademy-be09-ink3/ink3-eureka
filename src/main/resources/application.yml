@@ -1,5 +1,6 @@
 server:
   shutdown: graceful
+  port : 10252
 
 spring:
   lifecycle:
@@ -10,13 +11,10 @@ spring:
       name: admin
       password: 1234
 
-  profiles:
-    active: peer1
-
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    fetch-registry: true
+    register-with-eureka: true
     service-url:
       defaultZone: >
         http://admin:1234@localhost:10252/eureka/,http://admin:1234@localhost:10253/eureka/
