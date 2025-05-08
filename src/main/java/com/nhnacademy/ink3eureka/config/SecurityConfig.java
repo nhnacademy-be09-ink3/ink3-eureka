@@ -15,7 +15,17 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable);
         http.authorizeHttpRequests(authorizeRequests ->
-            authorizeRequests.anyRequest().authenticated()
+                authorizeRequests
+                        .requestMatchers(
+                                "/",                  // 루트
+                                "/eureka/**",         // 대시보드 HTML
+                                "/css/**",            // CSS 리소스
+                                "/js/**",             // JS 리소스
+                                "/images/**",         // 이미지 리소스
+                                "/webjars/**",        // 웹자르 포함 리소스
+                                "/actuator/**"        // (선택) actuator 상태 확인
+                        ).permitAll()
+                        .anyRequest().authenticated()
         );
 
         http.httpBasic(Customizer.withDefaults());
