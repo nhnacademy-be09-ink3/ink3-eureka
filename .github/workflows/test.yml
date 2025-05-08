@@ -63,7 +63,7 @@ jobs:
         run: sleep 15
 
       - name: Check health endpoint
-        run: curl --fail http://localhost:10252/actuator/health
+        run: curl -u admin:1234 --fail http://localhost:10252/actuator/health
 
       - name: Stop application
         run: kill $(cat app.pid)
