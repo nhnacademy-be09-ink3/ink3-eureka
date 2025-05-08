@@ -6,6 +6,14 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 10s
 
+  web:
+    resources:
+      add-mappings: true
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
   security:
     user:
       name: admin
@@ -17,4 +25,4 @@ eureka:
     register-with-eureka: false
     service-url:
       defaultZone: >
-        http://admin:1234@localhost:10252/eureka/,http://admin:1234@localhost:10253/eureka/
+        http://admin:1234@localhost:10252

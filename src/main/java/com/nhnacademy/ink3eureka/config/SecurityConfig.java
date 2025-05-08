@@ -17,7 +17,8 @@ public class SecurityConfig {
         http.authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
                         .requestMatchers(
-                                "/",                  // 루트
+                                "/",
+                                "/static/**",         // 루트
                                 "/eureka/**",         // 대시보드 HTML
                                 "/css/**",            // CSS 리소스
                                 "/js/**",             // JS 리소스
@@ -25,7 +26,7 @@ public class SecurityConfig {
                                 "/webjars/**",        // 웹자르 포함 리소스
                                 "/actuator/**"        // (선택) actuator 상태 확인
                         ).permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
         );
 
         http.httpBasic(Customizer.withDefaults());
