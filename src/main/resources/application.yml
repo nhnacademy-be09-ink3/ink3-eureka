@@ -12,7 +12,7 @@ spring:
 
   mvc:
     pathmatch:
-      matching-stragtegy: ant_path_matcher
+      matching-strategy: ant_path_matcher
 
   security:
     user:
