@@ -17,7 +17,8 @@ public class SecurityConfig {
         http.authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
                         .requestMatchers(
-                                "/",                  // 루트
+                                "/",
+                                "/static/**",         // 루트
                                 "/eureka/**",         // 대시보드 HTML
                                 "/css/**",            // CSS 리소스
                                 "/js/**",             // JS 리소스
