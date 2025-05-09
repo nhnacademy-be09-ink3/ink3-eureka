@@ -72,7 +72,7 @@ jobs:
         run: sleep 15
 
       - name: Health check
-        run: curl -u admin:1234 --fail http://localhost:10252/eureka/actuator/health
+        run: curl -u admin:1234 --fail http://localhost:10252/actuator/health
 
       - name: Stop Eureka
         run: kill $(cat app.pid)
