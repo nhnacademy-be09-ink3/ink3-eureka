@@ -10,6 +10,8 @@ spring:
 server:
   shutdown: graceful
   port : 10252
+  servlet:
+    context-path: /
 eureka:
   instance:
     hostname: localhost
