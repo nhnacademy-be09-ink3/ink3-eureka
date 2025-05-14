@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - dev
   pull_request:
     branches:
-      - main
+      - dev
 
 jobs:
   build:
@@ -16,6 +16,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Extract version from POM
+        id: extract_version
+        run: |
+          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Set up JDK 21
         uses: actions/setup-java@v3
@@ -31,13 +37,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-m2-
 
-      - name: Build with Maven
-        run: mvn clean install -B
+      - name: Build with Maven (skip tests)
+        run: mvn clean install -DskipTests=true -B
 
-
-
-
-  #실행테스트
   test:
     needs: build
     runs-on: ubuntu-latest
@@ -52,24 +54,35 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - name: Package application
-        run: mvn package -DskipTests -B
-
-      - name: Run application in background
+      - name: Extract version from POM
+        id: extract_version
         run: |
-          nohup java -jar target/*.jar > app.log 2>&1 & echo $! > app.pid
+          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Wait for application to start
+      - name: Package application
+        run: mvn package -DskipTests=true -B
+
+      - name: Run Eureka in background
+        run: |
+          nohup java -jar target/ink3-eureka-${{ steps.extract_version.outputs.version }}.jar --server.port=10266 > app.log 2>&1 &
+          echo $! > app.pid
+
+      - name: Wait for Eureka to start
         run: sleep 15
 
-      - name: Check health endpoint
-        run: curl -u admin:1234 --fail http://localhost:10252/actuator/health
+      - name: Health check
+        run: curl -u admin:1234 --fail http://localhost:10266/actuator/health
 
-      - name: Stop application
+      - name: Stop Eureka
         run: kill $(cat app.pid)
 
       - name: Run unit tests
         run: mvn test -B
+
+      - name: Print logs on failure
+        if: failure()
+        run: cat app.log
 
   deploy:
     name: Deploy to Linux Server
@@ -86,11 +99,17 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - name: Package JAR
-        run: mvn package -DskipTests -B
+      - name: Extract version from POM
+        id: extract_version
+        run: |
+          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Build JAR
+        run: mvn package -DskipTests=true -B
 
       - name: Verify JAR file
-        run: ls -lh target/*.jar
+        run: ls -lh target/ink3-eureka-${{ steps.extract_version.outputs.version }}.jar
 
       - name: Copy JAR to server
         uses: appleboy/scp-action@v0.1.4
@@ -99,8 +118,8 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_ID }}
           key: ${{ secrets.SSH_KEY }}
-          source: "target/*.jar"
-          target: "~/ink3-server/eureka/"
+          source: "target/ink3-eureka-${{ steps.extract_version.outputs.version }}.jar"
+          target: "~/ink3-server-dev/eureka-dev/"
 
       - name: Run deploy.sh on server
         uses: appleboy/ssh-action@v0.1.7
@@ -110,6 +129,7 @@ jobs:
           username: ${{ secrets.SSH_ID }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/ink3-server/eureka
+            cd ~/ink3-server-dev/eureka-dev
             chmod +x deploy.sh
-            nohup ./deploy.sh > deploy.log 2>&1 &
+            nohup ./deploy.sh "${{ steps.extract_version.outputs.version }}" > deploy.log 2>&1 &
+            exit 0
