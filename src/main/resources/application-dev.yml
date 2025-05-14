@@ -1,6 +1,6 @@
 server:
-shutdown: graceful
-port : 10266
+  shutdown: graceful
+  port: 10266
 servlet:
   context-path: /
 eureka:
