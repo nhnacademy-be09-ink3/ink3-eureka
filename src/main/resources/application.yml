@@ -7,16 +7,3 @@ spring:
     user:
       name: admin
       password: 1234
-server:
-  shutdown: graceful
-  port : 10252
-  servlet:
-    context-path: /
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
