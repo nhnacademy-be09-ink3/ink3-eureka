@@ -128,7 +128,7 @@ jobs:
           username: ${{ secrets.SSH_ID }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/ink3-server/auth
+            cd ~/ink3-server/eureka
             chmod +x deploy.sh
             export EUREKA_USER_NAME=${{ secrets.EUREKA_USER_NAME }}
             export EUREKA_USER_PASSWORD=${{ secrets.EUREKA_USER_PASSWORD }}
