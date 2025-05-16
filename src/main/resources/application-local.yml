@@ -1,8 +1,5 @@
-spring:
-  security:
-    user:
-      name: ${EUREKA_USER_NAME}
-      password: ${EUREKA_USER_PASSWORD}
+server:
+  port: 8082
 eureka:
   instance:
     hostname: localhost
@@ -11,3 +8,8 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+  security:
+    user:
+      name: none
+      password: none

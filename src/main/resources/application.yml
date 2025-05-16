@@ -1,9 +1,7 @@
 spring:
   application:
-    name: eureka-server
+    name: ink3-eureka
   lifecycle:
     timeout-per-shutdown-phase: 10s
-  security:
-    user:
-      name: admin
-      password: 1234
+server:
+  shutdown: graceful

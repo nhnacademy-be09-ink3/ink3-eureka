@@ -1,8 +1,8 @@
-server:
-  shutdown: graceful
-  port : 10252
-  servlet:
-    context-path: /
+spring:
+  security:
+    user:
+      name: ${EUREKA_USER_NAME}
+      password: ${EUREKA_USER_PASSWORD}
 eureka:
   instance:
     hostname: localhost
