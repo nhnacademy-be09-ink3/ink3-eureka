@@ -63,9 +63,7 @@ jobs:
       - name: Run Eureka in background
         run: |
           nohup java -jar target/ink3-eureka-${{ steps.extract_version.outputs.version }}.jar \
-            --server.port=10252 \
-            --spring.security.user.name=${{ secrets.EUREKA_USER }} \
-            --spring.security.user.password=${{ secrets.EUREKA_USER_PASSWORD }} \
+            --spring.profiles.active=test \
             > app.log 2>&1 &
           echo $! > app.pid
 
@@ -73,7 +71,7 @@ jobs:
         run: sleep 15
 
       - name: Health check
-        run: curl -u "${{ secrets.EUREKA_USER_NAME }}":"${{ secrets.EUREKA_USER_PASSWORD }}" --fail http://localhost:10252/actuator/health
+        run: curl --fail http://localhost:8080/actuator/health
 
       - name: Stop Eureka
         run: kill $(cat app.pid)
