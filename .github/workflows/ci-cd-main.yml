@@ -65,7 +65,7 @@ jobs:
           nohup java -jar target/ink3-eureka-${{ steps.extract_version.outputs.version }}.jar \
             --server.port=10252 \
             --spring.security.user.name=${{ secrets.EUREKA_USER }} \
-            --spring.security.user.password=${{ secrets.EUREKA_PASS }} \
+            --spring.security.user.password=${{ secrets.EUREKA_USER_PASSWORD }} \
             > app.log 2>&1 &
           echo $! > app.pid
 
@@ -132,5 +132,7 @@ jobs:
           script: |
             cd ~/ink3-server/auth
             chmod +x deploy.sh
+            export EUREKA_USER_NAME=${{ secrets.EUREKA_USER_NAME }}
+            export EUREKA_USER_PASSWORD=${{ secrets.EUREKA_USER_PASSWORD }}
             nohup ./deploy.sh "${{ steps.extract_version.outputs.version }}" > deploy.log 2>&1 &
             exit 0
