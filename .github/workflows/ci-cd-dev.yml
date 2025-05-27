@@ -5,6 +5,12 @@ on:
     branches:
       - dev
 
+env:
+  RABBITMQ_HOST: ${{ secrets.RABBITMQ_HOST }}
+  RABBITMQ_PORT: ${{ secrets.RABBITMQ_PORT }}
+  RABBITMQ_USERNAME: ${{ secrets.RABBITMQ_USERNAME }}
+  RABBITMQ_PASSWORD: ${{ secrets.RABBITMQ_PASSWORD }}
+
 jobs:
   build:
     name: Build JAR
@@ -63,7 +69,7 @@ jobs:
       - name: Run Eureka in background
         run: |
           nohup java -jar target/ink3-eureka-${{ steps.extract_version.outputs.version }}.jar \
-            --spring.profiles.active=test \
+            --spring.profiles.active=test --spring.rabbitmq.host=${{ secrets.RABBITMQ_HOST }} --spring.rabbitmq.port=${{ secrets.RABBITMQ_PORT }} --spring.rabbitmq.username=${{ secrets.RABBITMQ_USERNAME }} --spring.rabbitmq.password=${{ secrets.RABBITMQ_PASSWORD }} \
             > app.log 2>&1 &
           echo $! > app.pid
 
@@ -132,5 +138,9 @@ jobs:
             chmod +x deploy.sh
             export EUREKA_USER_NAME=${{ secrets.EUREKA_USER_NAME }}
             export EUREKA_USER_PASSWORD=${{ secrets.EUREKA_USER_PASSWORD }}
+            export RABBITMQ_HOST=${{ secrets.RABBITMQ_HOST }}
+            export RABBITMQ_PORT=${{ secrets.RABBITMQ_PORT }}
+            export RABBITMQ_USERNAME=${{ secrets.RABBITMQ_USERNAME }}
+            export RABBITMQ_PASSWORD=${{ secrets.RABBITMQ_PASSWORD }}
             nohup ./deploy.sh "${{ steps.extract_version.outputs.version }}" > deploy.log 2>&1 &
             exit 0
